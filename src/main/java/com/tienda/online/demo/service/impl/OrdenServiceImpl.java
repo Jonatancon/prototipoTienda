@@ -16,10 +16,16 @@ public class OrdenServiceImpl extends GenericServicesImpl<Orden, Long> implement
     @Autowired
     private OrdenDao ordenDao;
     
+    @Autowired
+    private Orden orden;
     
     @Override
     public CrudRepository<Orden, Long> getDao() {
         return ordenDao;
     }
     
+    @Override
+    public Orden findByFk_user_id(Long userID){
+        return orden;
+    }
 }

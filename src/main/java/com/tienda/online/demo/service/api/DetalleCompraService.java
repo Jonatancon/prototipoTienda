@@ -13,5 +13,5 @@ import com.tienda.online.demo.model.DetalleCompra;
  * @author user
  */
 public interface DetalleCompraService extends GenericServiceApi<DetalleCompra, Long> {
-    
+    public DetalleCompra findByFk_id_orden(Long ordenId);
 }

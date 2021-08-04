@@ -4,7 +4,6 @@ import com.tienda.online.demo.model.Carrito;
 import com.tienda.online.demo.model.User;
 import com.tienda.online.demo.service.api.CarritoService;
 import com.tienda.online.demo.service.api.UserService;
-import com.tienda.online.demo.service.impl.CarritoServiceImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -68,9 +67,9 @@ public class CarritoController {
         if(usuario != null) {
             carritoService.deleteByFk_user_id(idUser);
         }else{
-            return new ResponseEntity<Carrito>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<Carrito>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
     
     

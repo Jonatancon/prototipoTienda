@@ -15,10 +15,18 @@ public class DetalleCompraServiceImpl extends GenericServicesImpl<DetalleCompra,
     @Autowired
     private DetalleCompraDao detalleCompraDao;
     
+    @Autowired
+    private DetalleCompra detalleCompra;
+    
     
     @Override
     public CrudRepository<DetalleCompra, Long> getDao() {
         return detalleCompraDao;
+    }
+    
+    @Override
+    public DetalleCompra findByFk_id_orden(Long userID){
+        return detalleCompra;
     }
     
 }
