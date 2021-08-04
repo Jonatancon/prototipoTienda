@@ -30,13 +30,8 @@ public class CarritoServiceImpl extends GenericServicesImpl<Carrito, Long> imple
     }
     
     
-    @Autowired
-    public void deleteByFk_user_id(User usuario){
-        Long fk_user_id = usuario.getId();
+    @Override
+    public void deleteByFk_user_id(Long idUser){
     }
     
-    /*@Query(value = CarritoServiceImpl.QUERYELIMINAR, nativeQuery = true)
-    public void deleteProductsCarrito(User usuario){
-        Long idUsuario = usuario.getId();
-    }*/
 }
