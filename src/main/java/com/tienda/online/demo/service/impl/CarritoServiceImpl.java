@@ -10,6 +10,7 @@ import com.tienda.online.demo.commons.GenericServicesImpl;
 import com.tienda.online.demo.model.Carrito;
 import com.tienda.online.demo.model.User;
 import com.tienda.online.demo.service.api.CarritoService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -18,7 +19,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CarritoServiceImpl extends GenericServicesImpl<Carrito, Long> implements CarritoService{
 
-    public static final String QUERYELIMINAR = "DELETE * from Carrito where fk_id_user =?1";
+    
     
     @Autowired
     private CarritoDao carritoDao;
@@ -28,8 +29,14 @@ public class CarritoServiceImpl extends GenericServicesImpl<Carrito, Long> imple
         return carritoDao;
     }
     
-    @Query(value = CarritoServiceImpl.QUERYELIMINAR, nativeQuery = true)
+    
+    @Autowired
+    public void deleteByFk_user_id(User usuario){
+        Long fk_user_id = usuario.getId();
+    }
+    
+    /*@Query(value = CarritoServiceImpl.QUERYELIMINAR, nativeQuery = true)
     public void deleteProductsCarrito(User usuario){
         Long idUsuario = usuario.getId();
-    }
+    }*/
 }
