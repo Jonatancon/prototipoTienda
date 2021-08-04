@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(DetalleCompraController.DETALLECOMPRA)
 public class DetalleCompraController {
     
-    public static final String DETALLECOMPRA = "/orden";
+    public static final String DETALLECOMPRA = "/detalleCompra";
     public static final String FIND_BY_ID = "/find/{id}";
     public static final String FIND_BY_ID_USER = "/findByUserId/{id}";
     public static final String SAVE_DETALLE_COMPRA = "/save";

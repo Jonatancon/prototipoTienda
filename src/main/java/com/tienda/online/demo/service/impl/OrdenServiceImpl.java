@@ -16,7 +16,6 @@ public class OrdenServiceImpl extends GenericServicesImpl<Orden, Long> implement
     @Autowired
     private OrdenDao ordenDao;
     
-    @Autowired
     private Orden orden;
     
     @Override

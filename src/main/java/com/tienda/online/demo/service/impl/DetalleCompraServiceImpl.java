@@ -15,7 +15,6 @@ public class DetalleCompraServiceImpl extends GenericServicesImpl<DetalleCompra,
     @Autowired
     private DetalleCompraDao detalleCompraDao;
     
-    @Autowired
     private DetalleCompra detalleCompra;
     
     
