@@ -18,6 +18,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class CarritoServiceImpl extends GenericServicesImpl<Carrito, Long> implements CarritoService{
 
+    public static final String QUERYELIMINAR = "DELETE * from Carrito where fk_id_user =?1";
+    
     @Autowired
     private CarritoDao carritoDao;
     
@@ -26,8 +28,8 @@ public class CarritoServiceImpl extends GenericServicesImpl<Carrito, Long> imple
         return carritoDao;
     }
     
+    @Query(value = CarritoServiceImpl.QUERYELIMINAR, nativeQuery = true)
     public void deleteProductsCarrito(User usuario){
-        String query = "DELETE * from Carrito where fk_id_user =" + usuario.getId();
-        @Query(value = query , nativeQuery = true)
+        Long idUsuario = usuario.getId();
     }
 }
