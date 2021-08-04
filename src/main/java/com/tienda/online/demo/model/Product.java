@@ -1,6 +1,5 @@
 package com.tienda.online.demo.model;
 
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,20 +8,26 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-
-@Data
 @Entity
+@Builder
+@AllArgsConstructor
+@Data
+@NoArgsConstructor
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
+
+    @Column(nullable = false)
     private String nombre;
-    @NotNull
-    private int stock;
-    @NotNull
-    private BigDecimal valor;
-    @NotNull
+
+    @Column(nullable = false)
+    private BigDecimal precio;
+
+    @Column(nullable = false)
     private String imgUrl;
+
+    @Column(nullable = false)
+    private int cantidad;
 }

@@ -5,7 +5,6 @@
  */
 package com.tienda.online.demo.controlador;
 
-import com.tienda.online.demo.model.Product;
 import com.tienda.online.demo.model.User;
 import com.tienda.online.demo.service.api.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,30 +21,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("/user/")
+@RequestMapping(UserController.USER)
 public class UserController {
+
+    public static final String USER = "/user";
+    public static final String GET_ALL = "/get-all";
+    public static final String FIND_BY_ID = "/find/{id}";
+    public static final String SAVE_USER = "/save";
+    public static final String DELETE_BY_ID = "/delete/{id}";
     
     @Autowired
     private UserService userService;
     
     
-    @GetMapping("/all")
+    @GetMapping(GET_ALL)
     public List<User> getAll(){
         return userService.getAll();
     }
     
-    @GetMapping("/find/{id}")
+    @GetMapping(FIND_BY_ID)
     public User find(@PathVariable Long id){
         return userService.get(id);
     }
     
-    @PostMapping("/save")
+    @PostMapping(SAVE_USER)
     public ResponseEntity<User> save(@RequestBody User user){
         User obj = userService.save(user);
         return new ResponseEntity<User>(obj, HttpStatus.CREATED);
     }
     
-    @GetMapping("/delete/{id}")
+    @GetMapping(DELETE_BY_ID)
     public ResponseEntity<User> delete(@PathVariable Long id) {
         User user = userService.get(id);
         if(user != null) {
